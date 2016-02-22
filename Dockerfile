@@ -7,7 +7,7 @@ RUN apt-get update && \
     libmcrypt-dev \
     libpng12-dev \
     libbz2-dev \
-    libcurl-devel \
+    libcurl-dev \
     php-pear \
     curl \
     git \
