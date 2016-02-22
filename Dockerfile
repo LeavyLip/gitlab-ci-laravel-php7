@@ -18,7 +18,7 @@ RUN apt-get update && \
 RUN docker-php-ext-install mcrypt zip bz2 mbstring \
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
   && docker-php-ext-install gd
-
+  
 # Memory Limit
 RUN echo "memory_limit=-1" > $PHP_INI_DIR/conf.d/memory-limit.ini
 
@@ -35,5 +35,13 @@ RUN php --version
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Goto temporary directory.
+WORKDIR /tmp
+
+# Run composer and phpunit installation.
+RUN composer selfupdate && \
+    composer require "phpunit/phpunit:5.2.9" --prefer-source --no-interaction && \
+    ln -s /tmp/vendor/bin/phpunit /usr/local/bin/phpunit
 
 RUN composer --version
