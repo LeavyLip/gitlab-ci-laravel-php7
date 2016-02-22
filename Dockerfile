@@ -7,6 +7,7 @@ RUN apt-get update && \
     libmcrypt-dev \
     libpng12-dev \
     libbz2-dev \
+    libcurl-devel \
     php-pear \
     curl \
     git \
@@ -16,6 +17,7 @@ RUN apt-get update && \
 
 # PHP Extensions
 RUN docker-php-ext-install mcrypt zip bz2 mbstring \
+curl \
 imap \
 json \
 ldap \
