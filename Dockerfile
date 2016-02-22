@@ -20,7 +20,7 @@ RUN docker-php-ext-install mcrypt zip bz2 mbstring \
   && docker-php-ext-install gd
   
   # Run xdebug installation.
-RUN curl -L http://pecl.php.net/get/xdebug-2.4.0rc4.tgz >> /usr/src/php/ext/xdebug.tgz && \
+RUN curl -L https://xdebug.org/files/xdebug-2.4.0rc4.tgz >> /usr/src/php/ext/xdebug.tgz && \
     tar -xf /usr/src/php/ext/xdebug.tgz -C /usr/src/php/ext/ && \
     rm /usr/src/php/ext/xdebug.tgz && \
     docker-php-ext-install xdebug-2.4.0rc4 && \
