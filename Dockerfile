@@ -36,6 +36,14 @@ RUN php --version
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Run xdebug installation.
+RUN curl -L http://pecl.php.net/get/xdebug-2.3.3.tgz >> /usr/src/php/ext/xdebug.tgz && \
+    tar -xf /usr/src/php/ext/xdebug.tgz -C /usr/src/php/ext/ && \
+    rm /usr/src/php/ext/xdebug.tgz && \
+    docker-php-ext-install xdebug-2.3.3 && \
+    docker-php-ext-install pcntl && \
+    php -m
+    
 # Goto temporary directory.
 WORKDIR /tmp
 
