@@ -16,7 +16,6 @@ RUN apt-get update && \
 
 # PHP Extensions
 RUN docker-php-ext-install mcrypt zip bz2 mbstring \
-curl \
 imap \
 json \
 ldap \
