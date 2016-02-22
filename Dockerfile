@@ -20,10 +20,10 @@ curl \
 imap \
 json \
 ldap \
-mysqli \
+pdo_mysql \
 mysqlnd \
 openssl \
-sqlite \
+pdo_sqlite \
 tokenizer \
 xmlrpc \
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
