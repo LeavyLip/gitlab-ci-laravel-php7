@@ -23,7 +23,7 @@ ldap \
 mysqli \
 mysqlnd \
 openssl \
-sqlite3 \
+sqlite \
 tokenizer \
 xdebug \
 xmlrpc \
