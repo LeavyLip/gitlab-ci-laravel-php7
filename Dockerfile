@@ -19,6 +19,14 @@ RUN docker-php-ext-install mcrypt zip bz2 mbstring \
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
   && docker-php-ext-install gd
   
+  # Run xdebug installation.
+RUN curl -L http://pecl.php.net/get/xdebug-2.4.0rc4.tgz >> /usr/src/php/ext/xdebug.tgz && \
+    tar -xf /usr/src/php/ext/xdebug.tgz -C /usr/src/php/ext/ && \
+    rm /usr/src/php/ext/xdebug.tgz && \
+    docker-php-ext-install 2.4.0rc4 && \
+    docker-php-ext-install pcntl && \
+    php -m
+  
 # Memory Limit
 RUN echo "memory_limit=-1" > $PHP_INI_DIR/conf.d/memory-limit.ini
 
@@ -35,14 +43,6 @@ RUN php --version
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-# Run xdebug installation.
-RUN curl -L http://pecl.php.net/get/xdebug-2.3.3.tgz >> /usr/src/php/ext/xdebug.tgz && \
-    tar -xf /usr/src/php/ext/xdebug.tgz -C /usr/src/php/ext/ && \
-    rm /usr/src/php/ext/xdebug.tgz && \
-    docker-php-ext-install xdebug-2.3.3 && \
-    docker-php-ext-install pcntl && \
-    php -m
     
 # Goto temporary directory.
 WORKDIR /tmp
