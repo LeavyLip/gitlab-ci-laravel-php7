@@ -20,7 +20,7 @@ curl \
 imap \
 json \
 ldap \
-mysql \
+mysqli \
 mysqlnd \
 openssl \
 sqlite3 \
