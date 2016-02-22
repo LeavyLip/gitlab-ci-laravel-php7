@@ -49,7 +49,7 @@ WORKDIR /tmp
 
 # Run composer and phpunit installation.
 RUN composer selfupdate && \
-    composer require "phpunit/phpunit:5.2.9" --prefer-source --no-interaction && \
+    composer require "phpunit/phpunit:5.1.3" --prefer-source --no-interaction && \
     ln -s /tmp/vendor/bin/phpunit /usr/local/bin/phpunit
 
 RUN composer --version
