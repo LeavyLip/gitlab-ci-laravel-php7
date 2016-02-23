@@ -20,7 +20,7 @@ RUN docker-php-ext-install mcrypt zip bz2 mbstring \
 curl \
 json \
 pdo_mysql \
-mysqlnd \
+#mysqlnd \
 openssl \
 pdo_sqlite \
 tokenizer \
