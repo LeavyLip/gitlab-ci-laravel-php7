@@ -20,7 +20,6 @@ RUN docker-php-ext-install mcrypt zip bz2 mbstring \
 curl \
 json \
 pdo_mysql \
-pdo_sqlite \
 tokenizer \
 xmlrpc \
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
